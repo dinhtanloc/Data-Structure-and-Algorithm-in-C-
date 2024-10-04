@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 namespace Homework{
     class Homework{
         static T Sum<T> (T a, T b){
