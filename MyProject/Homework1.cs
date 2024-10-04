@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-
+using System.Diagnostics;
 namespace Homework
 {
     internal class MyCollection<T> : CollectionBase
@@ -54,13 +54,18 @@ namespace Homework
         static void Main()
         {
             MyCollection<int> my = new MyCollection<int>();
+            Stopwatch stopwatch = new Stopwatch();
             my.Add(1);
             my.Add(2);
             my.Add(3);
 
+            stopwatch.Reset();   
+            stopwatch.Start();
             Console.WriteLine(my.Contains(1)); 
             Console.WriteLine(my.Contains(5)); 
             my.Reverse();
+            stopwatch.Stop();
+            Console.WriteLine("Thời gian thực thi của ReverseMethod2: " + stopwatch.ElapsedMilliseconds + "ms");
             my.PrintAll();
         }
     }
