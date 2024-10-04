@@ -1,0 +1,5 @@
+C# 
+phân biệt ref và out
+T là một kiểu dữ liệu chung, giống như var
+Lưu ý về từ khóa dynamic
+Phân biệt "" và''
