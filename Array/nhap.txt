@@ -1,0 +1,45 @@
+static Array Union(Array a, Array b)
+{
+    int lengthA = a.Length;
+    int lengthB = b.Length;
+
+    // Tạo một mảng tạm để chứa kết quả hợp của cả a và b
+    int[] result = new int[lengthA + lengthB];
+    int count = 0;
+
+    // Thêm tất cả phần tử của mảng a vào result
+    for (int i = 0; i < lengthA; i++)
+    {
+        result[count] = (int)a.GetValue(i);
+        count++;
+    }
+
+    // Thêm các phần tử của mảng b nếu chúng không tồn tại trong result
+    for (int j = 0; j < lengthB; j++)
+    {
+        bool found = false;
+
+        // Kiểm tra xem b[j] đã tồn tại trong result chưa
+        for (int k = 0; k < count; k++)
+        {
+            if (result[k] == (int)b.GetValue(j))
+            {
+                found = true;
+                break;
+            }
+        }
+
+        // Nếu b[j] chưa tồn tại, thêm nó vào result
+        if (!found)
+        {
+            result[count] = (int)b.GetValue(j);
+            count++;
+        }
+    }
+
+    // Trả về mảng kết quả với kích thước phù hợp
+    int[] finalResult = new int[count];
+    Array.Copy(result, finalResult, count);
+
+    return finalResult;
+}
